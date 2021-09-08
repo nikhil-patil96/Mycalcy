@@ -11,14 +11,14 @@ pipeline{
  stages{
     stage("Git Checkout"){
         steps{
-            git credentialsId: 'github', url: 'https://github.com/nikhil-patil96/Maven-Project/'
+            git credentialsId: 'github', url: 'https://github.com/nikhil-patil96/Mycalcy.git/'
             // doing git checkout using credentials in jenkins with id "github" and repo url https://github.com/nikhil-patil96/Maven-Project
         }
     }
     stage("Maven Build"){
         steps{
             sh "mvn clean package" 
-            sh "mv target/*.war target/myweb.war" //rename war file.
+            sh "mv target/*.war target/CalcyTest.war" //rename war file.
             
         }
     }
