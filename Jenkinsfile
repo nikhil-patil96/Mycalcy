@@ -18,7 +18,7 @@ pipeline{
     stage("Maven Build"){
         steps{
             sh "mvn clean package" 
-            sh "mv target/*.war target/CalcyTest.war" //rename war file.
+            sh "mv target/*.war target/CalcyTest1.war" //rename war file.
             
         }
     }
@@ -26,7 +26,7 @@ pipeline{
              steps{
              sshagent(['tomcat-new']) {
               sh """
-                scp -o StrictHostKeyChecking=no target/myweb.war ubuntu@172.31.13.127:/home/ubuntu/tomcat/webapps
+                scp -o StrictHostKeyChecking=no target/CalcyTest1.war ubuntu@172.31.13.127:/home/ubuntu/tomcat/webapps
                 
                   ssh ubuntu@172.31.13.127 /home/ubuntu/tomcat/bin/shutdown.sh //stop tomcat
                 
