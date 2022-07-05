@@ -22,6 +22,7 @@ pipeline{
             
         }
     }
+    /* 
     stage("deploy-dev"){
              steps{
              sshagent(['tomcat-new']) {
@@ -35,7 +36,7 @@ pipeline{
               """
              }
         }
-    }
+    }*/
  }
  
 }
