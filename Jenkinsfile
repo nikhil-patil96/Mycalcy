@@ -28,7 +28,7 @@ pipeline{
             sshagent(['Tomcat']) {
             // some block
                 sh """
-                scp -o StrictHostKeyChecking=no target/CalcyTest1.war ubuntu@13.127.243.181:/home/ubuntu/tomcat/webapps
+                //scp -o StrictHostKeyChecking=no target/CalcyTest1.war ubuntu@13.127.243.181:/home/ubuntu/tomcat/webapps
                 ssh ubuntu@13.127.243.181 /home/ubuntu/restart.sh
                 """
             }
