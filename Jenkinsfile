@@ -21,22 +21,21 @@ pipeline{
             sh "mv target/*.war target/CalcyTest1.war" //rename war file.
             
         }
-    }
-    /* 
+    } 
     stage("deploy-dev"){
              steps{
              sshagent(['tomcat-new']) {
               sh """
-                scp -o StrictHostKeyChecking=no target/CalcyTest1.war ubuntu@172.31.13.127:/home/ubuntu/tomcat/webapps
+                scp -o StrictHostKeyChecking=no target/CalcyTest1.war ubuntu@13.127.243.181:/home/ubuntu/tomcat/webapps
                 
-                  ssh ubuntu@172.31.13.127 /home/ubuntu/tomcat/bin/shutdown.sh //stop tomcat
+                  ssh ubuntu@13.127.243.181 /home/ubuntu/tomcat/bin/shutdown.sh //stop tomcat
                 
-                 ssh ubuntu@172.31.13.127 /home/ubuntu/tomcat/bin/startup.sh //start tomcat
+                 ssh ubuntu@13.127.243.181 /home/ubuntu/tomcat/bin/startup.sh //start tomcat
                 
               """
              }
         }
-    }*/
+    }
  }
  
 }
