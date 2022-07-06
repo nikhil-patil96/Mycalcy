@@ -24,8 +24,8 @@ pipeline{
     } 
     stage("deploy-dev"){
              steps{
-            sshPublisher(publishers: [sshPublisherDesc(configName: 'deploy tomcat', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/home/ubuntu/tomcat/apache-tomcat-9.0.54/webapps', remoteDirectorySDF: false, removePrefix: 'target', sourceFiles: 'target/*.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: true)])
-            /*
+            sshPublisher(publishers: [sshPublisherDesc(configName: 'deploy tomcat', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/home/ubuntu/package', remoteDirectorySDF: false, removePrefix: 'target', sourceFiles: 'target/*.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: true)])
+                 /*
             sshagent(['Tomcat']) {
             
                 sh """
