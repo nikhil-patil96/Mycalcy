@@ -24,9 +24,7 @@ pipeline{
     } 
     stage("deploy-dev"){
              steps{
-            withCredentials([sshUserPrivateKey(credentialsId: 'Tomcat', keyFileVariable: '')]) {
-    sh "ssh ubuntu@13.127.243.181 /home/ubuntu/restart.sh"
-    }
+            sshPublisher(publishers: [sshPublisherDesc(configName: 'deploy tomcat', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/home/ubuntu/tomcat/apache-tomcat-9.0.54/webapps', remoteDirectorySDF: false, removePrefix: 'target', sourceFiles: 'target/*.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: true)])
             /*
             sshagent(['Tomcat']) {
             
